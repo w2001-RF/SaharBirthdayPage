@@ -182,7 +182,7 @@ p#main-message {
     width: 100%;
     max-width: 400px;
     height: 500px;
-    margin: 30px auto;
+    margin: 30px 20px;
     overflow: hidden;
     border-radius: 25px;
     box-shadow: 0 4px 15px rgba(100, 42, 61, 0.5);
