@@ -15,16 +15,37 @@
     <script>
         // Function to dynamically load JSON content
         async function loadContent() {
-            const response = await fetch('content.json');
-            const data = await response.json();
-            console.log(data);
+            // const response = await fetch('content.json');
+            // const data = await response.json();
+            // console.log(data);
+
+            // JSON data embedded in the HTML
+            const data = {
+            "title": "Happy Birthday Maryam!",
+            "mainMessage": "Wishing you an amazing day full of laughter, surprises, and cake! 🎂",
+            "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
+            "imageAlt": "Maryam's Birthday Image",
+            "specialSectionTitle": "Special Messages for Your Day:",
+            "specialMessages": [
+                "You light up every room you walk into!",
+                "May your dreams come true today and always!",
+                "Keep being your awesome self and inspiring us all!",
+                "Here's to another year of greatness!"
+            ],
+            "personalMessage": {
+                "intro": "Dear Maryam,",
+                "body": "On your special day, I wish you all the happiness in the world. May you continue to shine brightly and inspire everyone around you.",
+                "signature": "Your friend, Wassim"
+            }
+        };
 
             // Set the title and main message
-            document.querySelector('h1 span:first-child').textContent = data.title;
-            document.querySelector('p.main-message').textContent = data.mainMessage;
+            document.querySelector('h1#title span:first-child').textContent = data.title;
+            document.querySelector('p#main-message').textContent = data.mainMessage;
+            console.log(document.querySelector('h1#title span:first-child').textContent)
 
             // Load the image
-            const imgButton = document.querySelector('.image-button img');
+            const imgButton = document.querySelector('.image-container .image-button img');
             imgButton.src = data.image;
             imgButton.alt = data.imageAlt;
 
@@ -71,11 +92,11 @@
     <!-- Artistic Brush Strokes -->
     <div class="brush-stroke"></div>
 
-    <h1>
-        <span>Happy Birthday Maryam!</span>
+    <h1 id="title">
+        <span></span>
         <span>🎉</span>
     </h1>
-    <p>Wishing you a day filled with love, laughter, and joy! 🎂</p>
+    <p id="main-message"></p>
 
     <!-- Image Container -->
     <div class="image-container">
