@@ -6,76 +6,13 @@
     <title>Happy Birthday Maryam!</title>
     <!-- Add Favicon -->
     <link rel="icon" type="image/png" href="https://p1.hiclipart.com/preview/857/419/751/happy-birthday-logo-cupcake-birthday-birthday-cake-party-happy-birthday-anniversary-party-hat-png-clipart.jpg" />
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script>
-        // Function to dynamically load JSON content
-        async function loadContent() {
-            // const response = await fetch('content.json');
-            // const data = await response.json();
-            // console.log(data);
-
-            // JSON data embedded in the HTML
-            const data = {
-            "title": "Happy Birthday Maryam!",
-            "mainMessage": "Wishing you an amazing day full of laughter, surprises, and cake! 🎂",
-            "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
-            "imageAlt": "Maryam's Birthday Image",
-            "specialSectionTitle": "Special Messages for Your Day:",
-            "specialMessages": [
-            "You light up every room you walk into!",
-            "May your dreams come true today and always!",
-            "Keep being your awesome self and inspiring us all!",
-            "Here's to another year of greatness!"
-            ],
-            "personalMessage": {
-            "intro": "Dear Maryam,",
-            "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
-            "signature": "Your friend, Wassim"
-            }
-        };
-
-            // Set the title and main message
-            document.querySelector('h1#title span:first-child').textContent = data.title;
-            document.querySelector('p#main-message').textContent = data.mainMessage;
-            console.log(document.querySelector('h1#title span:first-child').textContent)
-
-            // Load the image
-            const imgButton = document.querySelector('.image-container .image-button img');
-            imgButton.src = data.image;
-            imgButton.alt = data.imageAlt;
-
-            // Load special messages
-            const jaguarSection = document.querySelector('.jaguar-section');
-            jaguarSection.innerHTML = `<h2>${data.specialSectionTitle}</h2>`;
-            data.specialMessages.forEach((message, index) => {
-                const p = document.createElement('p');
-                p.textContent = `${index + 1}. ${message}`;
-                jaguarSection.appendChild(p);
-            });
-
-            // Load personalized message
-            const specialMessage = document.querySelector('.special-message');
-            specialMessage.innerHTML = `
-                <p>${data.personalMessage.intro}</p>
-                <p>${data.personalMessage.body}</p>
-                <p class="signature">${data.personalMessage.signature}</p>
-            `;
-        }
-
-        // Play audio function
-        function playAudio() {
-            var audio = new Audio('Happy Birthday Maryam.mp3');
-            audio.play();
-        }
-
-        // Load content on page load
-        window.onload = loadContent;
-    </script>
+    <link rel="stylesheet" href="style1.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <!-- Confetti -->
@@ -101,13 +38,18 @@
     <!-- Image Container -->
     <div class="image-container">
         <button onclick="playAudio()" class="image-button">
-            <img src="https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106" alt="Maryam's Birthday">
+            <img src="" alt="Maryam's Birthday">
         </button>
     </div>
-    
-    <!-- Jaguar Section -->
-    <div class="jaguar-section">
-        <!-- Special messages will be loaded here dynamically -->
+
+    <!-- Slideshow Carousel -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Images will be loaded here dynamically -->
+        </div>
+        <div class="carousel-indicators">
+            <!-- Indicators will be loaded here dynamically -->
+        </div>
     </div>
 
     <div class="special-message">
@@ -116,3 +58,4 @@
 
     <div class="cake">🎂</div>
 </body>
+</html>

@@ -1,22 +1,27 @@
 body {
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #ffccf2, #ff99cc); /* Pink gradient background */
+    font-family: 'Arial', serif;
+    background: linear-gradient(135deg, #f1d2ea, #da82ae); /* Pink gradient background */
     text-align: center;
-    padding: 20px;
+    padding: 0;
     margin: 0;
     position: relative;
 }
+
 h1 {
-    color: #cc0066; /* Deep magenta */
-    font-size: 2.5em;
+    font-size: 3em;
     margin-bottom: 15px;
+    margin-top: 15px;
     font-weight: bold;
     animation: fadeIn 2s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    /*color: #cc0066; /*Deep magenta*/
+    color: #ff007f;
+    text-shadow: 2px 2px 4px #880044;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -25,12 +30,13 @@ h1 {
         opacity: 1;
     }
 }
-p {
-    font-size: 1em;
-    color: #660033; /* Dark pink */
+p#main-message {
+    font-size: 1.5em;
+    color: #790202; /* Dark pink */
     line-height: 1.6;
-    margin: 10px 0;
+    margin: 20px 0;
 }
+
 .image-container {
     margin: 20px auto;
     width: 200px;
@@ -41,7 +47,7 @@ p {
     box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
     animation: float 4s infinite ease-in-out;
 }
-.image-button {
+.image-container .image-button {
     background: none; /* Remove default button background */
     border: none; /* Remove default button border */
     padding: 0; /* Remove default button padding */
@@ -58,12 +64,15 @@ p {
         transform: translateY(-10px);
     }
 }
-.image-button img {
+
+.image-container .image-button img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%; /* Ensure the image is circular */
 }
+
+/*Special message section*/
 .special-message {
     font-size: 1em;
     color: #660033; /* Dark pink */
@@ -144,22 +153,6 @@ p {
 .brush-stroke::after {
     bottom: -100px;
     right: -50px;
-}
-
-/* Jaguar Texture Section */
-.jaguar-section {
-    background-image: url('https://www.shutterstock.com/shutterstock/photos/1909838797/display_1500/stock-vector-vector-seamless-leopard-pattern-black-spots-on-a-white-background-classic-design-1909838797.jpg');
-    color: #ffccd5; /* Soft rose */
-    padding: 20px;
-    border-radius: 15px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 15px rgba(204, 0, 51, 0.5); /* Red shadow */
-}
-.jaguar-section h2 {
-    color: #ff6699; /* Bright rose */
-    font-size: 1.8em;
-    margin-bottom: 15px;
 }
 
 /* Art Gallery Section */

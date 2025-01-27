@@ -1,0 +1,240 @@
+:root {
+    --primary-pink: #ff1a75;
+    --secondary-pink: #ff66a3;
+    --light-pink: #ffb3d1;
+    --dark-red: #990033;
+    --deep-red: #660022;
+    --soft-black: #1a0011;
+    --overlay-pink: rgba(255, 26, 117, 0.2);
+}
+
+body {
+    font-family: 'Arial', serif;
+    background: linear-gradient(135deg, var(--light-pink), var(--primary-pink));
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    color: var(--soft-black);
+}
+
+h1 {
+    font-size: 3em;
+    margin: 15px 0;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--deep-red);
+    text-shadow: 2px 2px 4px var(--dark-red);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+p#main-message {
+    font-size: 1.5em;
+    color: var(--deep-red);
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+.image-container {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--secondary-pink);
+    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
+    animation: float 4s infinite ease-in-out;
+}
+
+.image-container .image-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.image-container .image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.special-message {
+    font-size: 1em;
+    color: var(--deep-red);
+    margin: 20px auto;
+    font-style: italic;
+    max-width: 90%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
+}
+
+.special-message p {
+    margin: 10px 0;
+}
+
+.signature {
+    font-weight: bold;
+    color: var(--dark-red);
+    margin-top: 15px;
+}
+
+.cake {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: var(--dark-red);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--deep-red);
+    animation: confetti-fall 5s linear infinite;
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(720deg); }
+}
+
+.brush-stroke {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.brush-stroke::before,
+.brush-stroke::after {
+    content: '';
+    position: absolute;
+    background: var(--overlay-pink);
+    width: 200px;
+    height: 400px;
+    transform: rotate(-30deg);
+}
+
+.brush-stroke::before {
+    top: -100px;
+    left: -50px;
+}
+
+.brush-stroke::after {
+    bottom: -100px;
+    right: -50px;
+}
+
+.art-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 800px;
+}
+
+.art-gallery img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid var(--secondary-pink);
+    box-shadow: 0 4px 15px rgba(255, 102, 153, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.art-gallery img:hover {
+    transform: scale(1.0);
+}
+
+/* Slideshow Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+    margin: 30px auto;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(100, 42, 61, 0.5);
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    display: block;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Optional: Add slide indicators */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 3;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.indicator.active {
+    background: var(--primary-pink);
+}
