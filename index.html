@@ -6,191 +6,7 @@
     <title>Happy Birthday Maryam!</title>
     <!-- Add Favicon -->
     <link rel="icon" type="image/png" href="https://p1.hiclipart.com/preview/857/419/751/happy-birthday-logo-cupcake-birthday-birthday-cake-party-happy-birthday-anniversary-party-hat-png-clipart.jpg" />
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ffccf2, #ff99cc); /* Pink gradient background */
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-            position: relative;
-        }
-        h1 {
-            color: #cc0066; /* Deep magenta */
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            font-weight: bold;
-            animation: fadeIn 2s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        p {
-            font-size: 1em;
-            color: #660033; /* Dark pink */
-            line-height: 1.6;
-            margin: 10px 0;
-        }
-        .image-container {
-            margin: 20px auto;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 5px solid #ff6699; /* Bright pink border */
-            box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
-            animation: float 4s infinite ease-in-out;
-        }
-        .image-button {
-            background: none; /* Remove default button background */
-            border: none; /* Remove default button border */
-            padding: 0; /* Remove default button padding */
-            cursor: pointer; /* Add pointer cursor to indicate it's clickable */
-            width: 100%; /* Make the button cover the entire image container */
-            height: 100%;
-            border-radius: 50%; /* Match the container's border radius */
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        .image-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%; /* Ensure the image is circular */
-        }
-        .special-message {
-            font-size: 1em;
-            color: #660033; /* Dark pink */
-            margin-top: 20px;
-            font-style: italic;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 15px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
-        }
-        .special-message p {
-            margin: 10px 0;
-        }
-        .signature {
-            font-weight: bold;
-            color: #cc0066; /* Deep magenta */
-            margin-top: 15px;
-        }
-        .cake {
-            margin-top: 20px;
-            font-size: 1.5em;
-            color: #cc0066; /* Deep magenta */
-            animation: spin 2s linear infinite;
-        }
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Confetti Animation */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: #3a0819; /* Bright pink */
-            animation: confetti-fall 5s linear infinite;
-        }
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-            }
-        }
-
-        /* Artistic Brush Strokes */
-        .brush-stroke {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .brush-stroke::before,
-        .brush-stroke::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 102, 153, 0.2); /* Light pink brush stroke */
-            width: 200px;
-            height: 400px;
-            transform: rotate(-30deg);
-        }
-        .brush-stroke::before {
-            top: -100px;
-            left: -50px;
-        }
-        .brush-stroke::after {
-            bottom: -100px;
-            right: -50px;
-        }
-
-        /* Art Quote Section */
-        .art-quote {
-            margin: 30px auto;
-            max-width: 600px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
-        }
-        .art-quote p {
-            font-size: 1.2em;
-            color: #660033; /* Dark pink */
-            font-style: italic;
-        }
-
-        /* Art Gallery Section */
-        .art-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin: 30px auto;
-            max-width: 800px;
-        }
-        .art-gallery img {
-            width: 150px;
-            height: 150px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 3px solid #ff6699; /* Bright pink border */
-            box-shadow: 0 4px 10px rgba(204, 0, 102, 0.3); /* Magenta shadow */
-            transition: transform 0.3s ease;
-        }
-        .art-gallery img:hover {
-            transform: scale(1.1); /* Zoom effect on hover */
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <script>
         function playAudio() {
             var audio = new Audio('Happy Birthday Maryam.mp3');
@@ -226,16 +42,13 @@
         </button>
     </div>
 
-    <!-- Drawing and Architect Theme -->
-    <div class="theme-container">
-        <div class="theme-icon">🎨</div> <!-- Drawing Icon -->
-        <div class="theme-icon">🏗️</div> <!-- Architect Icon -->
-    </div>
-
-    <!-- Art Quote Section -->
-    <div class="art-quote">
-        <p>"Every artist was first an amateur.</p>
-        <p>Creativity takes courage."</p>
+    <!-- Jaguar Section -->
+    <div class="jaguar-section">
+        <h2>Special Messages for Your Day:</h2>
+        <p>1. May your creativity shine brighter with every passing year.</p>
+        <p>2. Always remember that your ideas and efforts make a difference.</p>
+        <p>3. Continue to inspire others with your passion and dedication.</p>
+        <p>4. Keep smiling and chasing your dreams—you’re unstoppable!</p>
     </div>
 
     <!-- Art Gallery Section -->
@@ -249,10 +62,9 @@
 
     <div class="special-message">
         <p>Dear Maryam,</p>
-        <p>On your special day, I want to wish you all the happiness in the world. You are an incredible person with a bright future ahead, and I know you will achieve your dream of becoming an amazing architect engineer. Your passion for drawing and your creativity are truly inspiring, and I have no doubt that you will build a future as beautiful as the designs you create.</p>
-        <p>As someone who admires you deeply, I want to encourage you to keep pursuing your dreams with the same determination and passion that you have always shown. You have a unique talent, and the world is waiting to see the incredible things you will accomplish.</p>
-        <p>May this year bring you closer to your goals and fill your life with success, love, and unforgettable memories. Happy Birthday, Maryam! 🎉</p>
-        <p class="signature">With love and admiration,<br>Wassim</p>
+        <p>On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨</p>
+        <p>Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!</p>
+        <p class="signature">Your friend,<br>Wassim</p>
     </div>
 
     <div class="cake">🎂</div>

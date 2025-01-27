@@ -1,0 +1,185 @@
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #ffccf2, #ff99cc); /* Pink gradient background */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+h1 {
+    color: #cc0066; /* Deep magenta */
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+p {
+    font-size: 1em;
+    color: #660033; /* Dark pink */
+    line-height: 1.6;
+    margin: 10px 0;
+}
+.image-container {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #ff6699; /* Bright pink border */
+    box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
+    animation: float 4s infinite ease-in-out;
+}
+.image-button {
+    background: none; /* Remove default button background */
+    border: none; /* Remove default button border */
+    padding: 0; /* Remove default button padding */
+    cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+    width: 100%; /* Make the button cover the entire image container */
+    height: 100%;
+    border-radius: 50%; /* Match the container's border radius */
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+.image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Ensure the image is circular */
+}
+.special-message {
+    font-size: 1em;
+    color: #660033; /* Dark pink */
+    margin-top: 20px;
+    font-style: italic;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(204, 0, 102, 0.3); /* Magenta shadow */
+}
+.special-message p {
+    margin: 10px 0;
+}
+.signature {
+    font-weight: bold;
+    color: #cc0066; /* Deep magenta */
+    margin-top: 15px;
+}
+.cake {
+    margin-top: 20px;
+    font-size: 1.5em;
+    color: #cc0066; /* Deep magenta */
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #3a0819; /* Bright pink */
+    animation: confetti-fall 5s linear infinite;
+}
+@keyframes confetti-fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+/* Artistic Brush Strokes */
+.brush-stroke {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.brush-stroke::before,
+.brush-stroke::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 102, 153, 0.2); /* Light pink brush stroke */
+    width: 200px;
+    height: 400px;
+    transform: rotate(-30deg);
+}
+.brush-stroke::before {
+    top: -100px;
+    left: -50px;
+}
+.brush-stroke::after {
+    bottom: -100px;
+    right: -50px;
+}
+
+/* Jaguar Texture Section */
+.jaguar-section {
+    background-image: url('https://www.shutterstock.com/shutterstock/photos/2217705327/display_1500/stock-photo-seamless-leopard-pattern-leopard-texture-african-animal-print-2217705327.jpg');
+    color: #ffccd5; /* Soft rose */
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(204, 0, 51, 0.5); /* Red shadow */
+}
+.jaguar-section h2 {
+    color: #ff6699; /* Bright rose */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Art Gallery Section */
+.art-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    max-width: 800px;
+}
+.art-gallery img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 3px solid #ff6699; /* Bright pink border */
+    box-shadow: 0 4px 15px rgba(255, 102, 153, 0.5); /* Magenta shadow */
+    transition: transform 0.3s ease;
+}
+.art-gallery img:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
