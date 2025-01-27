@@ -13,10 +13,47 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script>
+        // Function to dynamically load JSON content
+        async function loadContent() {
+            const response = await fetch('content.json');
+            const data = await response.json();
+            console.log(data);
+
+            // Set the title and main message
+            document.querySelector('h1 span:first-child').textContent = data.title;
+            document.querySelector('p.main-message').textContent = data.mainMessage;
+
+            // Load the image
+            const imgButton = document.querySelector('.image-button img');
+            imgButton.src = data.image;
+            imgButton.alt = data.imageAlt;
+
+            // Load special messages
+            const jaguarSection = document.querySelector('.jaguar-section');
+            jaguarSection.innerHTML = `<h2>${data.specialSectionTitle}</h2>`;
+            data.specialMessages.forEach((message, index) => {
+                const p = document.createElement('p');
+                p.textContent = `${index + 1}. ${message}`;
+                jaguarSection.appendChild(p);
+            });
+
+            // Load personalized message
+            const specialMessage = document.querySelector('.special-message');
+            specialMessage.innerHTML = `
+                <p>${data.personalMessage.intro}</p>
+                <p>${data.personalMessage.body}</p>
+                <p class="signature">${data.personalMessage.signature}</p>
+            `;
+        }
+
+        // Play audio function
         function playAudio() {
             var audio = new Audio('Happy Birthday Maryam.mp3');
             audio.play();
         }
+
+        // Load content on page load
+        window.onload = loadContent;
     </script>
 </head>
 <body>
@@ -50,26 +87,19 @@
     <!-- Jaguar Section -->
     <div class="jaguar-section">
         <h2>Special Messages for Your Day:</h2>
-        <p>1. May your creativity shine brighter with every passing year.</p>
-        <p>2. Always remember that your ideas and efforts make a difference.</p>
-        <p>3. Continue to inspire others with your passion and dedication.</p>
-        <p>4. Keep smiling and chasing your dreams—you’re unstoppable!</p>
+        <p>1. May your days be filled with endless success and achievements.</p>
+        <p>2. Always remember that your hard work and kindness inspire those around you.</p>
+        <p>3. Keep shining and making a positive impact on everyone you meet.</p>
+        <p>4. Stay strong, confident, and unstoppable in all your pursuits!</p>
     </div>
 
-    <!-- Art Gallery Section -->
-    <div class="art-gallery">
-        <!-- Add images of Maryam's artwork here -->
-        <img src="image1.jpeg" alt="Image 1">
-        <img src="image2.jpeg" alt="Image 2">
-        <img src="image3.jpg" alt="Image 3">
-        <img src="image4_1.jpg" alt="Image 4">
+    <!-- Jaguar Section -->
+    <div class="jaguar-section">
+        <!-- Special messages will be loaded here dynamically -->
     </div>
 
     <div class="special-message">
-        <p>Dear Maryam,</p>
-        <p>On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨</p>
-        <p>Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!</p>
-        <p class="signature">Your friend,<br>Wassim</p>
+        <!-- Personalized message will be loaded here dynamically -->
     </div>
 
     <div class="cake">🎂</div>
