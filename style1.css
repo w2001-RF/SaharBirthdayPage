@@ -1,4 +1,8 @@
-:root {
+/* ==========================================================================
+   Variables & Reset
+   ========================================================================== */
+   :root {
+    /* Color Palette */
     --primary-pink: #ff1a75;
     --secondary-pink: #ff66a3;
     --light-pink: #ffb3d1;
@@ -8,48 +12,112 @@
     --overlay-pink: rgba(255, 26, 117, 0.2);
 }
 
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: handwritten;
+    src: url(journal.ttf);
+  }
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 body {
     font-family: 'Arial', serif;
     background: linear-gradient(135deg, var(--light-pink), var(--primary-pink));
     text-align: center;
-    padding: 0;
-    margin: 0;
-    position: relative;
     color: var(--soft-black);
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* ==========================================================================
+   Typography
+   ========================================================================== */
 h1 {
-    font-size: 3em;
-    margin: 15px 0;
+    font-size: clamp(2em, 5vw, 3em);
+    margin: 15px 20px;
     font-weight: bold;
-    animation: fadeIn 2s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    font-size: clamp(3em, 3vw, 4em);
     color: var(--deep-red);
     text-shadow: 2px 2px 4px var(--dark-red);
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 2s ease-in-out;
 }
 
 p#main-message {
-    font-size: 1.5em;
+    font-size: clamp(1.1em, 3vw, 1.5em);
     color: var(--deep-red);
     line-height: 1.6;
-    margin: 20px 0;
+    margin: 20px;
 }
 
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.message-section, 
+.cake-section {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* ==========================================================================
+   Decorative Elements
+   ========================================================================== */
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--deep-red);
+    animation: confetti-fall 10s linear infinite;
+    z-index: 10;
+}
+
+/* Cake Styling */
+.cake {
+    margin: 5px;
+    color: var(--deep-red);
+}
+
+.cake .cake-image {
+    width: 90px;
+    height: 90px;
+    transition: transform 0.3s ease;
+}
+
+.cake .cake-image:hover {
+    transform: scale(1.1);
+}
+
+/* Image Container */
 .image-container {
     margin: 20px auto;
-    width: 200px;
-    height: 200px;
+    width: min(280px, 80vw);
+    height: min(280px, 80vw);
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid var(--secondary-pink);
+    border: 8px solid var(--secondary-pink);
     box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
     animation: float 4s infinite ease-in-out;
 }
@@ -64,11 +132,6 @@ p#main-message {
     border-radius: 50%;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
 .image-container .image-button img {
     width: 100%;
     height: 100%;
@@ -76,113 +139,21 @@ p#main-message {
     border-radius: 50%;
 }
 
-.special-message {
-    font-size: 1em;
-    color: var(--deep-red);
-    margin: 20px auto;
-    font-style: italic;
-    max-width: 90%;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
-}
-
-.special-message p {
-    margin: 10px 0;
-}
-
-.signature {
-    font-weight: bold;
-    color: var(--dark-red);
-    margin-top: 15px;
-}
-
-.cake {
-    margin-top: 20px;
-    font-size: 1.5em;
-    color: var(--dark-red);
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: var(--deep-red);
-    animation: confetti-fall 5s linear infinite;
-}
-
-@keyframes confetti-fall {
-    0% { transform: translateY(-10vh) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(720deg); }
-}
-
-.brush-stroke {
-    position: absolute;
+/* ==========================================================================
+   Carousel Component
+   ========================================================================== */
+.carousel-section {
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
+    height: auto;
 }
 
-.brush-stroke::before,
-.brush-stroke::after {
-    content: '';
-    position: absolute;
-    background: var(--overlay-pink);
-    width: 200px;
-    height: 400px;
-    transform: rotate(-30deg);
-}
-
-.brush-stroke::before {
-    top: -100px;
-    left: -50px;
-}
-
-.brush-stroke::after {
-    bottom: -100px;
-    right: -50px;
-}
-
-.art-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 30px auto;
-    max-width: 800px;
-}
-
-.art-gallery img {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    object-fit: cover;
-    border: 3px solid var(--secondary-pink);
-    box-shadow: 0 4px 15px rgba(255, 102, 153, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.art-gallery img:hover {
-    transform: scale(1.0);
-}
-
-/* Slideshow Carousel Styles */
 .carousel-container {
     position: relative;
-    width: 100%;
-    max-width: 400px;
-    height: 500px;
-    margin: 30px 20px;
+    /* width: 382px;
+    height: 364px; */
+    width: 200px;
+    height: 200px;
+    margin: 5px auto;
     overflow: hidden;
     border-radius: 25px;
     box-shadow: 0 4px 15px rgba(100, 42, 61, 0.5);
@@ -214,16 +185,16 @@ p#main-message {
     object-fit: cover;
 }
 
-/* Optional: Add slide indicators */
 .carousel-indicators {
     position: absolute;
     bottom: 20px;
-    left: 60px;
+    left: 10;
     right: 0;
     display: flex;
     justify-content: center;
     gap: 10px;
     z-index: 3;
+    padding: 0 20px;
 }
 
 .indicator {
@@ -237,4 +208,84 @@ p#main-message {
 
 .indicator.active {
     background: var(--primary-pink);
+}
+
+/* ==========================================================================
+   Message Components
+   ========================================================================== */
+.special-message {
+    font-size: clamp(0.9em, 2.5vw, 1em);
+    color: var(--deep-red);
+    margin: 20px auto;
+    font-style: italic;
+    width: min(90%, 600px);
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
+}
+
+.special-message p {
+    margin: 10px 0;
+    text-align: center;
+    font-family: handwritten;
+}
+
+.signature {
+    font-weight: bold;
+    color: var(--dark-red);
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes confetti-fall {
+    0% { transform: translateY(-10vh) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(720deg); }
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 15px;
+    }
+    
+    .carousel-container {
+        margin: 0px auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .main-container {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .message-section,
+    .cake-section {
+        margin: 10px;
+    }
+
+    .cake-section .cake-image {
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+    }
+    
+    .special-message {
+        margin: 20px 10px;
+    }
 }

@@ -5,7 +5,7 @@ let slideInterval;
 // Data object
 const data = {
     "title": "Happy Birthday Maryam!",
-    "mainMessage": "Wishing you an amazing day full of laughter, surprises, and cake! 🎂",
+    "mainMessage": "Wishing you an amazing day full of laughter, surprises, and cake!",
     "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
     "imageAlt": "Maryam's Birthday Image",
     "personalMessage": {
@@ -81,9 +81,9 @@ async function loadContent() {
     document.querySelector('p#main-message').textContent = data.mainMessage;
 
     // Load the image
-    const imgButton = document.querySelector('.image-container .image-button img');
-    imgButton.src = data.image;
-    imgButton.alt = data.imageAlt;
+    // const imgButton = document.querySelector('.image-container .image-button img');
+    // imgButton.src = data.image;
+    // imgButton.alt = data.imageAlt;
 
     // Load gallery images
     const carousel = document.querySelector('.carousel');

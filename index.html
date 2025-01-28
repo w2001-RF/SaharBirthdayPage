@@ -3,59 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Happy Birthday Maryam - A special birthday celebration page">
+    <meta name="theme-color" content="#ff1a75">
+    
     <title>Happy Birthday Maryam!</title>
-    <!-- Add Favicon -->
-    <link rel="icon" type="image/png" href="https://p1.hiclipart.com/preview/857/419/751/happy-birthday-logo-cupcake-birthday-birthday-cake-party-happy-birthday-anniversary-party-hat-png-clipart.jpg" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="style1.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://em-content.zobj.net/source/microsoft-teams/363/birthday-cake_1f382.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+          crossorigin="anonymous">
     <link rel="stylesheet" href="style1.css">
-    <script src="script.js"></script>
 </head>
 <body>
-    <!-- Confetti -->
-    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="confetti" style="left: 20%; animation-delay: 1s;"></div>
-    <div class="confetti" style="left: 30%; animation-delay: 2s;"></div>
-    <div class="confetti" style="left: 40%; animation-delay: 3s;"></div>
-    <div class="confetti" style="left: 50%; animation-delay: 4s;"></div>
-    <div class="confetti" style="left: 60%; animation-delay: 5s;"></div>
-    <div class="confetti" style="left: 70%; animation-delay: 6s;"></div>
-    <div class="confetti" style="left: 80%; animation-delay: 7s;"></div>
-    <div class="confetti" style="left: 90%; animation-delay: 8s;"></div>
-
-    <!-- Artistic Brush Strokes -->
-    <div class="brush-stroke"></div>
-
-    <h1 id="title">
-        <span></span>
-        <span>🎉</span>
-    </h1>
-    <p id="main-message"></p>
-
-    <!-- Image Container -->
-    <div class="image-container">
-        <button onclick="playAudio()" class="image-button">
-            <img src="" alt="Maryam's Birthday">
-        </button>
+    <!-- Confetti Container -->
+    <div class="confetti-container" aria-hidden="true">
+        <div class="confetti" style="--delay: 0s; --position: 10%"></div>
+        <div class="confetti" style="--delay: 0.2s; --position: 20%"></div>
+        <div class="confetti" style="--delay: 0.3s; --position: 30%"></div>
+        <div class="confetti" style="--delay: 0.8s; --position: 40%"></div>
+        <div class="confetti" style="--delay: 1.5s; --position: 50%"></div>
+        <div class="confetti" style="--delay: 1.6s; --position: 60%"></div>
+        <div class="confetti" style="--delay: 2s; --position: 70%"></div>
+        <div class="confetti" style="--delay: 2.5s; --position: 80%"></div>
+        <div class="confetti" style="--delay: 3s; --position: 90%"></div>
     </div>
 
-    <!-- Slideshow Carousel -->
-    <div class="carousel-container">
-        <div class="carousel">
-            <!-- Images will be loaded here dynamically -->
-        </div>
-        <div class="carousel-indicators">
-            <!-- Indicators will be loaded here dynamically -->
-        </div>
-    </div>
+    <!-- Main Content -->
+    <main class="main-container">
+        <section class="message-section" aria-label="Birthday Message">
+            <h1 id="title">
+                <span class="birthday-text"></span>
+                <span class="cake-emoji" role="img" aria-label="Birthday Cake">
+                    <img class="cake-image" 
+                         src="https://em-content.zobj.net/source/microsoft-teams/363/birthday-cake_1f382.png" 
+                         alt="Birthday Cake"
+                         width="90" 
+                         height="90"
+                         loading="eager">
+                </span>
+            </h1>
+            <p id="main-message"></p>
+        </section>
+        
+        <!-- Slideshow Carousel -->
+        <section class="carousel-section" aria-label="Birthday Photos">
+            <div class="carousel-container">
+                <div class="carousel" role="region" aria-label="Photo Slideshow">
+                    <!-- Images will be loaded here dynamically -->
+                </div>
+                <div class="carousel-indicators" role="tablist">
+                    <!-- Indicators will be loaded here dynamically -->
+                </div>
+            </div>
+        </section>
 
-    <div class="special-message">
-        <!-- Personalized message will be loaded here dynamically -->
-    </div>
+        <!-- Personalized Message -->
+        <section class="message-section" aria-label="Personal Message">
+            <div class="special-message">
+                <!-- Personalized message will be loaded here dynamically -->
+            </div>
+        </section>
+    </main>
 
-    <div class="cake">🎂</div>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" 
+            integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" 
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
+            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+            crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
