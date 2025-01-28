@@ -120,6 +120,11 @@ async function loadContent() {
         <p class="signature">${data.personalMessage.signature}</p>
     `;
 }
+
+
+// Initialize on page load
+window.onload = loadContent;
+
 document.addEventListener('DOMContentLoaded', function() {
     const bgLoader = document.querySelector('.bg-loader img');
     
@@ -141,5 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Initialize on page load
-window.onload = loadContent;
+// Update background based on the active carousel image
+document.querySelector('.carousel').addEventListener('slid.bs.carousel', function () {
+    const activeItem = document.querySelector('div.carousel-item.active img');
+    const newBg = activeItem.src;
+    document.body.style.backgroundImage = `url('${newBg}')`;
+    console.log(activeItem);
+});
+
+// Set initial background image
+// const bgLoader = document.querySelector('.bg-loader img');
+// const initialBg = bgLoader.src;
+// document.body.style.backgroundImage = `url('${initialBg}')`;
