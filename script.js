@@ -10,8 +10,9 @@ const data = {
     "imageAlt": "Maryam's Birthday Image",
     "personalMessage": {
         "intro": "Dear Maryam,",
-        "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
-        "signature": "Your friend, Wassim"
+        // "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
+        "body": "On this absolutely fantastic day of yours, I hope you pause for just a teensy moment (between cake bites, of course!) to marvel at the masterpiece that is YOU! Seriously, you've got enough creative juice to make Picasso jealous and the kind of determination that would make a stubborn mule say 'wow, that's impressive!' Your superpowers aren't just creating beautiful art – they're making everyone around you smile with your magical mix of talent and heart. It's like you've got a PhD in being awesome, with a minor in making people's days brighter! ✨ Keep painting your dreams in bold colors, keep turning ordinary moments into extraordinary memories, and for heaven's sake, keep being the wonderful weirdo that you are! The world needs your special brand of sparkle – it's like glitter for the soul! 🌟 And hey, just between us... the universe hit the jackpot when it created you. You're like a walking, talking masterpiece with an extra serving of awesome sauce! 🎨💫 P.S. Your creativity is so bright, even the sun is wearing shades! 😎",
+        "signature": "Wassim"
     },
     "gallery": [
         {
