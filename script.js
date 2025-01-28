@@ -2,6 +2,9 @@
 let currentSlide = 0;
 let slideInterval;
 
+let nbrClick = 0;
+var audio = new Audio('Happy Birthday Maryam.mp3');
+
 // Data object
 const data = {
     "title": "Happy Birthday Maryam!",
@@ -71,8 +74,12 @@ function setSlide(index) {
 
 // Audio function
 function playAudio() {
-    var audio = new Audio('Happy Birthday Maryam.mp3');
-    audio.play();
+    if(nbrClick == 0){
+        audio.play();
+    } else {
+        audio.pause();
+    }
+    nbrClick = (nbrClick + 1) % 2;
 }
 
 // Content loading function
