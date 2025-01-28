@@ -26,16 +26,16 @@
         <img src="whiteTigerPattern1.webp" alt="" loading="lazy" onload="this.parentElement.classList.add('loaded')">
     </div>
     <!-- Confetti Container -->
-    <div class="confetti-container" aria-hidden="true">
-        <div class="confetti" style="--delay: 0s; --position: 10%"></div>
-        <div class="confetti" style="--delay: 0.2s; --position: 20%"></div>
-        <div class="confetti" style="--delay: 0.3s; --position: 30%"></div>
-        <div class="confetti" style="--delay: 0.8s; --position: 40%"></div>
-        <div class="confetti" style="--delay: 1.5s; --position: 50%"></div>
-        <div class="confetti" style="--delay: 1.6s; --position: 60%"></div>
-        <div class="confetti" style="--delay: 2s; --position: 70%"></div>
-        <div class="confetti" style="--delay: 2.5s; --position: 80%"></div>
-        <div class="confetti" style="--delay: 3s; --position: 90%"></div>
+    <div class="confetti-wrapper hidden">
+        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="confetti" style="left: 20%; animation-delay: 0.2s;"></div>
+        <div class="confetti" style="left: 30%; animation-delay: 0.3s;"></div>
+        <div class="confetti" style="left: 40%; animation-delay: 0.8s;"></div>
+        <div class="confetti" style="left: 50%; animation-delay: 1.5s;"></div>
+        <div class="confetti" style="left: 60%; animation-delay: 1.6s;"></div>
+        <div class="confetti" style="left: 70%; animation-delay: 2s;"></div>
+        <div class="confetti" style="left: 80%; animation-delay: 2.5s;"></div>
+        <div class="confetti" style="left: 90%; animation-delay: 3s;"></div>
     </div>
 
     <!-- Main Content -->
@@ -83,5 +83,15 @@
             integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
             crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
+
+    <script>
+        const elements = document.querySelectorAll('.hidden');
+        elements.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.remove('hidden');
+                el.classList.add('visible');
+            }, index * 1000);
+        });
+    </script>
 </body>
 </html>
