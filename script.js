@@ -120,6 +120,26 @@ async function loadContent() {
         <p class="signature">${data.personalMessage.signature}</p>
     `;
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const bgLoader = document.querySelector('.bg-loader img');
+    
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser supports native lazy loading
+        bgLoader.loading = 'lazy';
+    } else {
+        // Fallback for browsers that don't support lazy loading
+        const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    bgLoader.src = bgLoader.dataset.src;
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        lazyImageObserver.observe(bgLoader);
+    }
+});
 
 // Initialize on page load
 window.onload = loadContent;
