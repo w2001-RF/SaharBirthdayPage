@@ -10,6 +10,8 @@
     --deep-red: #660022;
     --soft-black: #1a0011;
     --overlay-pink: rgba(255, 26, 117, 0.2);
+    --overlay-light-pink: rgba(255, 179, 209, 0.9);
+    --overlay-primary-pink: rgba(255, 26, 117, 0.9);
 }
 
 *, *::before, *::after {
@@ -28,7 +30,15 @@
    ========================================================================== */
 body {
     font-family: 'Arial', serif;
-    background: linear-gradient(135deg, var(--light-pink), var(--primary-pink));
+    background-image: 
+        linear-gradient(
+            135deg, 
+            var(--overlay-light-pink),
+            var(--overlay-primary-pink)
+        ),
+        url("whiteTigerPattern1.webp");
+    background-blend-mode: overlay;
+    background-size: cover;
     text-align: center;
     color: var(--soft-black);
     position: relative;
