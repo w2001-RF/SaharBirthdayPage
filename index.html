@@ -19,29 +19,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
           crossorigin="anonymous">
-    
-          <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Redressed&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <div class="bg-loader" aria-hidden="true">
-        <img src="whiteTigerPattern1.webp" alt="" loading="lazy" onload="this.parentElement.classList.add('loaded')">
-    </div>
-    <!-- Confetti Container -->
-    <div class="confetti-wrapper hidden">
-        <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
-        <div class="confetti" style="left: 20%; animation-delay: 0.2s;"></div>
-        <div class="confetti" style="left: 30%; animation-delay: 0.3s;"></div>
-        <div class="confetti" style="left: 40%; animation-delay: 0.8s;"></div>
-        <div class="confetti" style="left: 50%; animation-delay: 1.5s;"></div>
-        <div class="confetti" style="left: 60%; animation-delay: 1.6s;"></div>
-        <div class="confetti" style="left: 70%; animation-delay: 2s;"></div>
-        <div class="confetti" style="left: 80%; animation-delay: 2.5s;"></div>
-        <div class="confetti" style="left: 90%; animation-delay: 3s;"></div>
-    </div>
+    <!-- Loading Background Image -->
+    <!-- <div class="bg-loader" aria-hidden="true">
+        <img src="" alt="Background Image" loading="lazy" onload="this.parentElement.classList.add('loaded')">
+    </div> -->
 
     <!-- Main Content -->
     <main class="main-container">
@@ -63,11 +51,11 @@
         <!-- Slideshow Carousel -->
         <section class="carousel-section hidden" aria-label="Birthday Photos">
             <div class="carousel-container">
-                <div id="carousel" class="carousel" role="region" aria-label="Photo Slideshow" onclick="playAudio()">
+                <div id="carousel" class="carousel" role="region" aria-label="Photo Slideshow" onclick="toggleAudio()">
                     <!-- Images will be loaded here dynamically -->
                 </div>
                 <div class="carousel-indicators" role="tablist">
-                    <!-- Indicators will be loaded here dynamically -->
+                    <!-- Indicators will be loaded here dynamically  -->
                 </div>
             </div>
         </section>
@@ -80,6 +68,9 @@
         </section>
     </main>
 
+    <!-- Confetti Container -->
+    <canvas id="confetti-canvas"></canvas>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" 
             integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" 
@@ -87,16 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
             integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script src="script.js" defer></script>
-
-    <script>
-        const elements = document.querySelectorAll('.hidden');
-        elements.forEach((el, index) => {
-            setTimeout(() => {
-                el.classList.remove('hidden');
-                el.classList.add('visible');
-            }, index * 500);
-        });
-    </script>
 </body>
 </html>
