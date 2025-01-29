@@ -12,9 +12,10 @@ const data = {
     "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
     "imageAlt": "Maryam's Birthday Image",
     "personalMessage": {
-        "intro": "Dear Maryam,",
+        // "intro": "Dear Maryam,",
+        "intro": "Happy Birthday, you magnificent human! 🎉,",
         // "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
-        "body": "On this absolutely fantastic day of yours, I hope you pause for just a teensy moment (between cake bites, of course!) to marvel at the masterpiece that is YOU! Seriously, you've got enough creative juice to make Picasso jealous and the kind of determination that would make a stubborn mule say 'wow, that's impressive!' Your superpowers aren't just creating beautiful art – they're making everyone around you smile with your magical mix of talent and heart. It's like you've got a PhD in being awesome, with a minor in making people's days brighter! ✨ Keep painting your dreams in bold colors, keep turning ordinary moments into extraordinary memories, and for heaven's sake, keep being the wonderful weirdo that you are! The world needs your special brand of sparkle – it's like glitter for the soul! 🌟 And hey, just between us... the universe hit the jackpot when it created you. You're like a walking, talking masterpiece with an extra serving of awesome sauce! 🎨💫 P.S. Your creativity is so bright, even the sun is wearing shades! 😎",
+        "body": "Today is your day to shine brighter than a disco ball at a 70s party! Take a moment to pat yourself on the back for all the awesome things you've done (even if it’s just surviving Mondays like a boss). Your creative spirit is like a glitter bomb—it explodes everywhere and makes everything better, even if it’s a little messy sometimes. ✨🎨 And your determination? It’s basically your superhero cape, except way more stylish.<br>Keep dreaming those big, wild dreams (you know, the ones that make people go, ‘Wait, what?!’), and never forget that the world is a better place because you’re in it. You’re like a rare Pokémon—talented, kind-hearted, and impossible to catch when there’s free cake around. 🍰 So go forth, conquer the day, and remember: you’re not just one-of-a-kind, you’re legendary. Now blow out those candles and make a wish—preferably one that involves more cake and fewer adult responsibilities. 😉🎂",
         "signature": "Wassim"
     },
     "gallery": [
@@ -122,9 +123,9 @@ async function loadContent() {
     // Load personalized message
     const specialMessage = document.querySelector('.special-message');
     specialMessage.innerHTML = `
-        <p>${data.personalMessage.intro}</p>
-        <p>${data.personalMessage.body}</p>
-        <p class="signature">${data.personalMessage.signature}</p>
+        <p class="indie-flower-regular">${data.personalMessage.intro}</p>
+        <p class="indie-flower-regular">${data.personalMessage.body}</p>
+        <p class="signature indie-flower-regular">${data.personalMessage.signature}</p>
     `;
 }
 

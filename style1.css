@@ -20,10 +20,26 @@
     padding: 0;
 }
 
+/* fonts */
 @font-face {
     font-family: handwritten;
     src: url(journal.ttf);
 }
+
+.indie-flower-regular {
+    font-family: "Indie Flower", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.redressed-regular {
+    font-family: "Redressed", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ======================================== */
+  
 
 .hidden { 
     visibility: hidden; 
@@ -287,8 +303,9 @@ p#main-message {
     font-size: clamp(1em, 2.5vw, 1.5em);
     margin: 10px 0;
     text-align: center;
-    font-family: handwritten;
+    /* font-family: handwritten; */
 }
+  
 
 .signature {
     font-weight: bold;
