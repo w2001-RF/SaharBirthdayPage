@@ -26,11 +26,6 @@
     <link rel="stylesheet" href="style1.css">
 </head>
 <body>
-    <!-- Loading Background Image -->
-    <!-- <div class="bg-loader" aria-hidden="true">
-        <img src="" alt="Background Image" loading="lazy" onload="this.parentElement.classList.add('loaded')">
-    </div> -->
-
     <!-- Main Content -->
     <main class="main-container">
         <section class="message-section hidden" aria-label="Birthday Message">
@@ -49,14 +44,12 @@
         </section>
         
         <!-- Slideshow Carousel -->
-        <section class="carousel-section hidden" aria-label="Birthday Photos">
-            <div class="carousel-container">
-                <div id="carousel" class="carousel" role="region" aria-label="Photo Slideshow" onclick="toggleAudio()">
-                    <!-- Images will be loaded here dynamically -->
-                </div>
-                <div class="carousel-indicators" role="tablist">
-                    <!-- Indicators will be loaded here dynamically  -->
-                </div>
+        <section class="carousel-section hidden" style="background-color: transparent"aria-label="Birthday Photos">
+            <div id="carousel" class="carousel" role="region" aria-label="3D Photo Slideshow" onclick="toggleAudio()">
+                <!-- Images will be loaded here dynamically -->
+            </div>
+            <div class="carousel-indicators" role="tablist">
+                <!-- Indicators will be loaded here dynamically  -->
             </div>
         </section>
 
@@ -79,6 +72,7 @@
             integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
             crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>

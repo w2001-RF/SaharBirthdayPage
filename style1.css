@@ -70,7 +70,7 @@
     position: relative;
     min-height: 100vh;
     width: 100%;
-    height: 100vh;
+    height: auto;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -100,28 +100,76 @@ p#main-message {
     margin: 20px;
 }
 
+.birthday-text {
+    display: inline-block;
+    background:  var(--deep-red);
+    background-clip: text;
+    color: transparent;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
 /* ==========================================================================
    Layout Components
    ========================================================================== */
 .main-container {
-    background-color: rgba(255, 255, 255, 0.7);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 20px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     max-width: 1200px;
     margin: 0 auto;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    background: linear-gradient(100deg, #ffffff 0%, var(--overlay-primary-pink) 100%);
+    transform: translateZ(50px) rotateX(5deg);
+    transition: all 0.8s ease-out;
+    border-radius: 50px;
+    padding: 20px;
 }
 
-.message-section, 
-.cake-section {
+.message-section {
     width: 100%;
     margin: 10px 0;
 }
 
+.message-section.visible, .carousel-section.visible {
+    opacity: 1;
+    transform: translateZ(0) rotateX(0);
+}
+
+/* Title Animation */
+#title {
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+.cake-emoji {
+    display: inline-block;
+    animation: bounce 2s ease infinite;
+}
+
+/* Carousel 3D Effect */
+.carousel {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
 /* ==========================================================================
    Decorative Elements
    ========================================================================== */
@@ -154,7 +202,7 @@ p#main-message {
 }
 
 /* Image Container */
-.image-container {
+/* .image-container {
     margin: 20px auto;
     width: min(280px, 80vw);
     height: min(280px, 80vw);
@@ -164,7 +212,7 @@ p#main-message {
     box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
     animation: float 4s infinite ease-in-out;
 }
-
+@media (max-width: 768px)
 .image-container .image-button {
     background: none;
     border: none;
@@ -173,7 +221,7 @@ p#main-message {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-}
+} */
 
 .image-container .image-button img {
     width: 100%;
@@ -182,75 +230,129 @@ p#main-message {
     border-radius: 50%;
 }
 
-/* ==========================================================================
-   Carousel Component
+/* ==========================================================================  
+   Carousel Component (3D Enhanced)  
    ========================================================================== */
-.carousel-section {
-    width: 100%;
-    height: auto;
-}
 
-.carousel-container {
-    position: relative;
-    /* width: 382px;
-    height: 364px; */
-    width: 250px;
-    height: 250px;
-    margin: 5px auto;
-    overflow: hidden;
-    border-radius: 25px;
-    box-shadow: 0 4px 15px rgba(100, 42, 61, 0.5);
+.carousel-section {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px; /* Adds 3D depth */
+    opacity: 0;
+    transform: translateZ(50px) rotateX(5deg);
+    transition: all 0.8s ease-out;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 20%;
+    box-shadow: 0 50px 50px rgba(0, 0, 0, 1.0);
+    /* padding: 20% 10%; */
+    max-width: 800px;
+    margin: 0px 20px;
 }
 
 .carousel {
-    position: relative;
+    position: relative; /* Adjusted for better structure */
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    transform-style: preserve-3d;
 }
 
 .carousel-item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     display: none;
+    position: absolute;
+    left: 0;
+    width: 250px;
+    height: 250px;
+    transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
+    transform: rotateY(90deg); /* Start with a 3D effect */
+    z-index: 5;
 }
 
 .carousel-item.active {
-    opacity: 1;
     display: block;
+    opacity: 1;
+    transform: rotateY(0deg); /* Smooth rotation effect */
 }
 
 .carousel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
 }
+
+.carousel-item img:hover {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================  
+   Carousel Indicators (Pagination Dots)  
+   ========================================================================== */
 
 .carousel-indicators {
     position: absolute;
     bottom: 20px;
-    left: 10;
-    right: 0;
+    left: 80%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
     gap: 10px;
     z-index: 3;
-    padding: 0 20px;
 }
 
 .indicator {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: var(--overlay-primary-pink);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .indicator.active {
     background: var(--primary-pink);
+    transform: scale(1.3);
+}
+
+/* ==========================================================================  
+   3D Transform Effects & Animations  
+   ========================================================================== */
+
+/* Floating effect for the carousel */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.carousel-section {
+    animation: float 4s infinite ease-in-out;
+}
+
+/* Rotate 3D Slideshow */
+@keyframes rotateCarousel {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+.carousel {
+    animation: rotateCarousel 20s infinite linear;
+}
+
+/* Bounce effect for indicators */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.indicator.active {
+    animation: bounce 1s infinite;
 }
 
 /* ==========================================================================
@@ -300,16 +402,21 @@ p#main-message {
     100% { transform: translateY(110vh) rotate(720deg); }
 }
 
-/* ==========================================================================
-   Media Queries
+/* ==========================================================================  
+   Responsive Design (Mobile Adjustments)  
    ========================================================================== */
 @media (max-width: 768px) {
     .main-container {
         padding: 5px;
     }
-    
-    .carousel-container {
-        margin: 0px auto;
+
+    .carousel-section {
+        width: 100%;
+    }
+
+    .carousel-item {
+        width: 200px;
+        height: 200px;
     }
 }
 
@@ -317,13 +424,13 @@ p#main-message {
     h1 {
         text-align: left;
     }
+
     .main-container {
         flex-direction: column;
         justify-content: space-between;
     }
 
-    .message-section,
-    .cake-section {
+    .message-section,.cake-section {
         margin: 10px;
     }
 
@@ -337,5 +444,15 @@ p#main-message {
         margin: 20px 0px;
         padding: 35px 5px;
         width: 100%;
+    }
+
+    .carousel-item {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
     }
 }

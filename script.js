@@ -13,7 +13,7 @@ const data = {
     "imageAlt": "Maryam's Birthday Image",
     "personalMessage": {
         // "intro": "Dear Maryam,",
-        "intro": "Happy Birthday, you magnificent human! 🎉,",
+        "intro": "Happy Birthday, you magnificent human! 🎉",
         // "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
         "body": "Today is your day to shine brighter than a disco ball at a 70s party! Take a moment to pat yourself on the back for all the awesome things you've done (even if it’s just surviving Mondays like a boss). Your creative spirit is like a glitter bomb—it explodes everywhere and makes everything better, even if it’s a little messy sometimes. ✨🎨 And your determination? It’s basically your superhero cape, except way more stylish.<br>Keep dreaming those big, wild dreams (you know, the ones that make people go, ‘Wait, what?!’), and never forget that the world is a better place because you’re in it. You’re like a rare Pokémon—talented, kind-hearted, and impossible to catch when there’s free cake around. 🍰 So go forth, conquer the day, and remember: you’re not just one-of-a-kind, you’re legendary. Now blow out those candles and make a wish—preferably one that involves more cake and fewer adult responsibilities. 😉🎂",
         "signature": "Wassim"
@@ -167,6 +167,59 @@ function revealElements() {
             el.classList.replace('hidden', 'visible');
         }, index * 500);
     });
+
+    // Initialize 3D Carousel
+    const carousel = document.getElementById('carousel');
+    const images = carousel.getElementsByTagName('img');
+    let currentAngle = 0;
+    const angleIncrement = 360 / images.length;
+
+    // Position images in 3D space
+    function updateCarousel() {
+        Array.from(images).forEach((img, index) => {
+            const angle = currentAngle + (index * angleIncrement);
+            const radians = angle * Math.PI / 180;
+            const z = 200 * Math.cos(radians);
+            const x = 200 * Math.sin(radians);
+            img.style.transform = `translate3d(\${x}px, 0, \${z}px) rotateY(\${angle}deg)`;
+            img.style.opacity = z < 0 ? 0.5 : 1;
+            img.style.zIndex = Math.floor(z);
+        });
+    }
+
+    // Rotate carousel on click/touch
+    let isDragging = false;
+    let startX;
+    let startAngle;
+
+    carousel.addEventListener('mousedown', startDrag);
+    carousel.addEventListener('touchstart', startDrag);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
+
+    function startDrag(e) {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.clientX : e.touches[0].clientX;
+        startAngle = currentAngle;
+    }
+
+    function drag(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        const x = e.type === 'mousemove' ? e.clientX : e.touches[0].clientX;
+        const diff = x - startX;
+        currentAngle = startAngle + diff * 0.5;
+        updateCarousel();
+    }
+
+    function endDrag() {
+        isDragging = false;
+    }
+
+    // Initialize carousel
+    updateCarousel();
 }
 
 // Initialize on page load
