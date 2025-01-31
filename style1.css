@@ -91,13 +91,16 @@ h1 {
     animation: fadeIn 4s ease-in-out;
 }
 
+p {
+    margin: 0px;
+}
+
 p#main-message {
     font-size: clamp(1.5em, 3vw, 2em);
     color: var(--deep-red);
     font-weight: bolder;
-    padding: 15px;
+    padding: 10px;
     line-height: 1.6;
-    margin: 20px;
 }
 
 .birthday-text {
@@ -152,12 +155,6 @@ p#main-message {
 .cake-emoji {
     display: inline-block;
     animation: bounce 2s ease infinite;
-}
-
-/* Carousel 3D Effect */
-.carousel {
-    perspective: 1000px;
-    transform-style: preserve-3d;
 }
 
 /* Animations */
@@ -257,7 +254,7 @@ p#main-message {
     position: relative; /* Adjusted for better structure */
     width: 100%;
     height: 100%;
-    /* overflow: hidden; */
+    perspective: 1000px;
     transform-style: preserve-3d;
 }
 
@@ -266,6 +263,7 @@ p#main-message {
     display: none;
     position: absolute;
     left: 0;
+    top: 150px;
     width: 400px;
     height: 400px;
     transition: opacity 0.5s ease-in-out, transform 1s ease-in-out;
@@ -342,7 +340,7 @@ p#main-message {
 }
 
 .carousel {
-    animation: rotateCarousel 20s infinite linear;
+    animation: rotateCarousel 30s infinite linear;
 }
 
 /* Bounce effect for indicators */
@@ -365,16 +363,16 @@ p#main-message {
     font-style: italic;
     width: min(90%, 600px);
     padding: 15px;
-    background-color: rgba(255, 250, 255, 0.8);
+    background-color: rgba(255, 250, 255, 0.6);
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(153, 0, 51, 0.8);
 }
 
 .special-message p {
     font-size: clamp(1em, 2.5vw, 1.5em);
     margin: 10px 0;
     text-align: center;
-    /* font-family: handwritten; */
+    font-weight: bold;
 }
   
 
@@ -430,8 +428,12 @@ p#main-message {
         justify-content: space-between;
     }
 
-    .message-section,.cake-section {
+    .cake-section {
         margin: 10px;
+    }
+
+    .message-section {
+        margin: 0px 0px;
     }
 
     .cake-section .cake-image {

@@ -5,10 +5,33 @@ let slideInterval;
 let nbrClick = 0;
 var audio = new Audio('Happy Birthday Maryam.mp3');
 
+// Function to check internet connection
+function loadThreeJS() {
+    const script = document.createElement("script");
+    script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+
+    script.onload = () => {
+        console.log("Three.js loaded from CDN");
+    };
+
+    script.onerror = () => {
+        console.warn("CDN failed, loading Three.js locally...");
+        const localScript = document.createElement("script");
+        localScript.src = "three.min.js"; // Load from local file
+        localScript.onload = () => console.log("Three.js loaded from local file");
+        document.head.appendChild(localScript);
+    };
+
+    document.head.appendChild(script);
+}
+
+// Load Three.js
+loadThreeJS();
+
 // Data object
 const data = {
     "title": "Happy Birthday Maryam!",
-    "mainMessage": "Wishing you an amazing day full of laughter, surprises, and cake!",
+    "mainMessage": "Wishing you an amazing day full of laughter, love, surprises, and joy! ❤️",
     "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
     "imageAlt": "Maryam's Birthday Image",
     "personalMessage": {
@@ -28,35 +51,35 @@ const data = {
 
 // Slideshow functions
 function startSlideshow() {
-    slideInterval = setInterval(nextSlide, 3000); // Change slide every 2 seconds
+    slideInterval = setInterval(nextSlide, 4000); // Change slide every 2 seconds
 }
 
 function nextSlide() {
     const items = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.indicator');
+    // const indicators = document.querySelectorAll('.indicator');
     
     items[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+    // indicators[currentSlide].classList.remove('active');
     
     currentSlide = (currentSlide + 1) % items.length;
     
     items[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    // indicators[currentSlide].classList.add('active');
 }
 
 function setSlide(index) {
     clearInterval(slideInterval); // Stop auto-rotation
     
     const items = document.querySelectorAll('.carousel-item');
-    const indicators = document.querySelectorAll('.indicator');
+    // const indicators = document.querySelectorAll('.indicator');
     
     items[currentSlide].classList.remove('active');
-    indicators[currentSlide].classList.remove('active');
+    // indicators[currentSlide].classList.remove('active');
     
     currentSlide = index;
     
     items[currentSlide].classList.add('active');
-    indicators[currentSlide].classList.add('active');
+    // indicators[currentSlide].classList.add('active');
     
     startSlideshow(); // Restart auto-rotation
 }
@@ -96,10 +119,10 @@ async function loadContent() {
         carousel.appendChild(item);
 
         // Create indicator
-        const indicator = document.createElement('div');
-        indicator.className = `indicator${index === 0 ? ' active' : ''}`;
-        indicator.onclick = () => setSlide(index);
-        indicatorsContainer.appendChild(indicator);
+        // const indicator = document.createElement('div');
+        // indicator.className = `indicator${index === 0 ? ' active' : ''}`;
+        // indicator.onclick = () => setSlide(index);
+        // indicatorsContainer.appendChild(indicator);
     });
 
     // Start the slideshow
@@ -118,14 +141,14 @@ async function loadContent() {
 function launchConfetti() {
     console.log("launchConfetti...");
     confetti({
-        particleCount: 150,
-        spread: 70,
+        particleCount: 800,
+        spread: 40,
         origin: { y: 1.0, x: 0.5 },
-        colors: ['#ff1a75', '#ff66a3', '#ffb3d1', '#990033'],
+        colors: ['#ff00000', '#ffb3d1', '#990033'],
         // colors: ["#26ccff", "#a25afd", "#ff5e7e", "#88ff5a", "#fcff42", "#ffa62d", "#ff36ff"],
         disableForReducedMotion: true,
         angle: 90,
-        startVelocity: 80,
+        startVelocity: 50,
         // decay: .9,
         gravity: 0.25,
         // drift: 0,
@@ -140,22 +163,26 @@ function launchConfetti() {
     setTimeout(() => {
         const interval = setInterval(() => {
             confetti({
-                particleCount: 80,
-                spread: 70,
-                origin: { y: 1.0, x: 0.5 },
+                particleCount: 50,
+                spread: 40,
+                origin: { y: 0.98, x: 0.5 },
                 colors: ['#ff1a75', '#ff66a3', '#ffb3d1', '#990033'],
                 disableForReducedMotion: true,
-                angle: 91,
-                startVelocity: 90,
-                gravity: 0.25,
+                angle: 90,
+                startVelocity: 60,
+                gravity: 1.0,
                 shapes: ["square", "circle"],
                 zIndex: 100,
                 scalar: 1.25
             });
         }, 200);
 
-        setTimeout(() => clearInterval(interval), 5000);
-    }, 500);
+        setTimeout(() => {
+            createFloatingHeart(); // 💖 Start heart animation AFTER confetti finishes
+            clearInterval(interval),
+            console.log("Confetti finished, now showing floating heart...");
+        }, 2000);
+    }, 4000);
 }
 
 // Element reveal logic
@@ -220,6 +247,92 @@ function revealElements() {
 
     // Initialize carousel
     updateCarousel();
+}
+
+// 3D Floating Heart Animation
+function createFloatingHeart() {
+    console.log("Creating floating heart...");
+    
+    // Create a new scene
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    
+    // Renderer setup
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.domElement.style.position = "fixed";
+    renderer.domElement.style.top = "0";
+    renderer.domElement.style.left = "0";
+    renderer.domElement.style.zIndex = "9999"; // Ensure it appears above everything
+    document.body.appendChild(renderer.domElement);
+
+
+    // Create a Heart shape
+    const heartShape = new THREE.Shape();
+    const heartX = -50;
+    const heartY = -50;
+    heartShape.moveTo(25 + heartX, 25 + heartY);
+    heartShape.bezierCurveTo(25 + heartX, 25 + heartY, 20 + heartX, 0 + heartY, 0 + heartX, 0 + heartY);
+    heartShape.bezierCurveTo(-30 + heartX, 0 + heartY, -30 + heartX, 35 + heartY, -30 + heartX, 35 + heartY);
+    heartShape.bezierCurveTo(-30 + heartX, 55 + heartY, -10 + heartX, 77 + heartY, 25 + heartX, 95 + heartY);
+    heartShape.bezierCurveTo(60 + heartX, 77 + heartY, 80 + heartX, 55 + heartY, 80 + heartX, 35 + heartY);
+    heartShape.bezierCurveTo(80 + heartX, 35 + heartY, 80 + heartX, 0 + heartY, 50 + heartX, 0 + heartY);
+    heartShape.bezierCurveTo(35 + heartX, 0 + heartY, 25 + heartX, 25 + heartY, 25 + heartX, 25 + heartY);
+
+    // Extrude settings to give it a 3D effect
+    const extrudeSettings = { 
+        depth: 3, 
+        bevelEnabled: true,
+        bevelSegments: 3,
+        steps: 3,
+        bevelSize: 0.3,
+        bevelThickness: 0.5
+    };
+    const heartGeometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
+
+    // **Red Heart Material**
+    const heartMaterial = new THREE.MeshStandardMaterial({ 
+        color: 0xff0000, // **Bright Red**
+        emissive: 0xaa0000, // Slight red glow effect
+        transparent: true, 
+        opacity: 0.50
+    });
+
+    // Create the heart mesh
+    const heartMesh = new THREE.Mesh(heartGeometry, heartMaterial);
+    
+    // Positioning the heart at the center
+    heartMesh.scale.set(0.25, 0.25, 0.25);
+    heartMesh.position.set(0, 0, -50);
+    scene.add(heartMesh);
+
+    // Lighting
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+    scene.add(new THREE.AmbientLight(0xaaaaaa));
+
+    // Set camera position
+    camera.position.set(0, 0, 5);
+
+    // Heart Floating Animation
+    let time = 0;
+    function animateHeart() {
+        requestAnimationFrame(animateHeart);
+        time += 0.03;
+        heartMesh.position.x = -5;
+        heartMesh.position.y = -2 + Math.sin(time) * 1; // Floating effect
+        // heartMesh.rotation.z += 0.05; // Rotate effect
+        heartMesh.rotation.z = Math.PI + Math.sin(time) * 0.1; // Rotate effect
+        renderer.render(scene, camera);
+    }
+    animateHeart();
+
+    // Remove heart after 3 seconds
+    setTimeout(() => {
+        document.body.removeChild(renderer.domElement);
+        console.log("Heart animation removed.");
+    }, 45000);
 }
 
 // Initialize on page load
