@@ -128,7 +128,7 @@ p#main-message {
     margin: 0 auto;
     perspective: 1000px;
     transform-style: preserve-3d;
-    background: linear-gradient(100deg, #ffffff 0%, var(--overlay-primary-pink) 100%);
+    background: linear-gradient(180deg, #ffffff 0%, var(--overlay-primary-pink) 50%);
     transform: translateZ(50px) rotateX(5deg);
     transition: all 0.8s ease-out;
     border-radius: 50px;

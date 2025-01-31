@@ -295,7 +295,7 @@ function createFloatingHeart() {
         color: 0xff0000, // **Bright Red**
         emissive: 0xaa0000, // Slight red glow effect
         transparent: true, 
-        opacity: 0.50
+        opacity: 0.8
     });
 
     // Create the heart mesh
@@ -321,9 +321,10 @@ function createFloatingHeart() {
         requestAnimationFrame(animateHeart);
         time += 0.03;
         heartMesh.position.x = -5;
-        heartMesh.position.y = -2 + Math.sin(time) * 1; // Floating effect
-        // heartMesh.rotation.z += 0.05; // Rotate effect
+        heartMesh.position.y = -2 + Math.sin(time) * 5; // Floating effect
         heartMesh.rotation.z = Math.PI + Math.sin(time) * 0.1; // Rotate effect
+        heartMesh.position.z += 0.1; // Zoom effect
+        heartMesh.rotation.z += 0.1; // Rotate effect
         renderer.render(scene, camera);
     }
     animateHeart();
@@ -332,7 +333,7 @@ function createFloatingHeart() {
     setTimeout(() => {
         document.body.removeChild(renderer.domElement);
         console.log("Heart animation removed.");
-    }, 45000);
+    }, 14000);
 }
 
 // Initialize on page load
