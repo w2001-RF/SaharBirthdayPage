@@ -30,7 +30,7 @@ loadThreeJS();
 
 // Data object
 const data = {
-    "title": "Happy Birthday Maryam!",
+    "title": "Happy Birthday Sahar! My Love ❤️🎂🎉🎈🎁🎊",
     "mainMessage": "Wishing you an amazing day full of laughter, love, surprises, and joy! ❤️",
     "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
     "imageAlt": "Maryam's Birthday Image",
@@ -38,14 +38,15 @@ const data = {
         // "intro": "Dear Maryam,",
         "intro": "Happy Birthday, you magnificent human! 🎉",
         // "body": "On your special day, I hope you take a moment to celebrate all your accomplishments and look forward to the exciting future ahead. Your creative spirit and determination are your superpowers, and they make you one-of-a-kind. 🎨✨ Keep creating, keep dreaming, and never forget that the world is lucky to have someone as talented and kind-hearted as you!",
-        "body": "Today is your day to shine brighter than a disco ball at a 70s party! Take a moment to pat yourself on the back for all the awesome things you've done (even if it’s just surviving Mondays like a boss). Your creative spirit is like a glitter bomb—it explodes everywhere and makes everything better, even if it’s a little messy sometimes. ✨🎨 And your determination? It’s basically your superhero cape, except way more stylish.<br>Keep dreaming those big, wild dreams (you know, the ones that make people go, ‘Wait, what?!’), and never forget that the world is a better place because you’re in it. You’re like a rare Pokémon—talented, kind-hearted, and impossible to catch when there’s free cake around. 🍰 So go forth, conquer the day, and remember: you’re not just one-of-a-kind, you’re legendary. Now blow out those candles and make a wish—preferably one that involves more cake and fewer adult responsibilities. 😉🎂",
+        "body": "Hey Sahar, my dearest love,\nHappy belated birthday! Even though it's a bit late—today being February 16, 2025—I’m still bursting with admiration and joy for you. Since the magical day you were born on February 12, 2009, you’ve been lighting up every room you enter, shining brighter than a disco ball at a groovy 70s party!\nTake a moment to feel proud of every incredible step you take—even if it's just conquering a Monday like the superstar you are. Your creative spirit is a dazzling glitter bomb that transforms ordinary days into spectacular adventures, even if it leaves a little sparkle (and a bit of delightful mess) behind.\nYour determination is like your very own superhero cape, stylish and unstoppable, empowering you to chase those big, wild dreams—the kind that make people pause and say, \"Wow, what a force of nature!\" You’re as unique as a rare Pokémon: talented, kind-hearted, and forever elusive when there’s free cake on the horizon.\nSo, my love, as you step into this new year of life, remember: you’re not just one-of-a-kind—you’re legendary. May every moment be filled with laughter, wonder, and just the right amount of mischief (plus plenty of cake).\nWith all my love, always and forever,",
         "signature": "Wassim"
     },
     gallery: [
-        { src: "image1.jpeg", alt: "Image 1" },
-        { src: "image2.jpeg", alt: "Image 2" },
-        { src: "image3.jpg", alt: "Image 3" },
-        { src: "image4_1.jpg", alt: "Image 4" }
+        { src: "image.jpg", alt: "Image 1" },
+        // { src: "image1.jpeg", alt: "Image 1" },
+        // { src: "image2.jpeg", alt: "Image 2" },
+        // { src: "image3.jpg", alt: "Image 3" },
+        // { src: "image4_1.jpg", alt: "Image 4" }
     ]
 };
 
