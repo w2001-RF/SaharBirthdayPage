@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="404 - Page Not Found. The page you're looking for does not exist.">
+  <meta name="theme-color" content="#ff1a75">
+  
+  <title>404 - Page Not Found</title>
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="style1.css" as="style">
+  <link rel="preload" href="script.js" as="script">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://em-content.zobj.net/source/microsoft-teams/363/birthday-cake_1f382.png">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+        crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Redressed&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      text-align: center;
+      font-family: 'Redressed', cursive;
+      padding-top: 50px;
+    }
+    .error-container {
+      margin: 0 auto;
+      max-width: 600px;
+    }
+    .error-code {
+      font-size: 120px;
+      font-weight: bold;
+      color: #ff1a75;
+    }
+    .error-message {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+    .home-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #ff1a75;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .home-button:hover {
+      background-color: #e60063;
+    }
+  </style>
+</head>
+<body>
+  <main class="error-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">Oops! The page you're looking for can't be found.</p>
+    <a href="/" class="home-button">Return Home</a>
+  </main>
+
+  <!-- Confetti Container (Optional for fun) -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" 
+          integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" 
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" 
+          integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js" defer></script>
+  
+  <script>
+    // Trigger confetti on page load for a fun effect
+    window.onload = function() {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    };
+  </script>
+</body>
+</html>
