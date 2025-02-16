@@ -33,7 +33,7 @@ const data = {
     "title": "Happy Birthday Sahar! My Love ❤️🎂🎉🎈🎁🎊",
     "mainMessage": "Wishing you an amazing day full of laughter, love, surprises, and joy! ❤️",
     "image": "https://media-lhr8-2.cdn.whatsapp.net/v/t61.24694-24/470309056_9203815166341309_7089127386852074967_n.jpg?ccb=11-4&oh=01_Q5AaIDh3pXg6Ms4r_L9yNLsOTtnnhnm0dmj4K4xckEi-xMgP&oe=679F3E31&_nc_sid=5e03e0&_nc_cat=106",
-    "imageAlt": "Maryam's Birthday Image",
+    "imageAlt": "Sahar's Birthday Image",
     "personalMessage": {
         // "intro": "Dear Maryam,",
         "intro": "Happy Birthday, you magnificent human! 🎉",
